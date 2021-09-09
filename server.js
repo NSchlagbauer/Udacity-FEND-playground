@@ -31,28 +31,29 @@ app.use(express.static('website'));
 
 
 /* Simple GET request responding with a Hello World String */
-// Alternative 1
-app.get('/', function (req, res) {
+// Alternative 1 
+/*app.get('/', function (req, res) {
   res.send('Hello World!');
-});
+}); */
 
 // Alternative 2:
 // app.get ('/', (req, res) => res.send('Hello World!'));
 
 /* GET request to return a JS  object */
 //create empty JS object
-const appData = {};
-app.get('/all', (req, res) => res.send(appData));
+/*const appData = {};
+app.get('/all', (req, res) => res.send(appData)); */
 
 // Simple POST request answering with a string
-app.post('/', function (req, res) {
+/* app.post('/', function (req, res) {
   res.send('POST recieved.');
-});
+}); */
 
 // Basic POST route for information
 const postData = [];
 app.post('/addMovie', addMovie);
+
 function addMovie(req, res) {
+  postData.push(req.body);
   console.log(req.body);
-  data.push(req.body);
 }
