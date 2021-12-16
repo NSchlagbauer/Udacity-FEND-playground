@@ -19,8 +19,7 @@ const port = 8000;
 const server = app.listen(port, listening);
 
 function listening() {
-  console.log('server running.');
-  console.log(`running on port ${port}`);
+  console.log(`server running on port ${port}`);
 }
 
 // Alternative 2:
@@ -51,8 +50,12 @@ app.post('/', function (req, res) {
 
 // Basic POST route for information
 const postData = [];
-app.post('/addMovie', addMovie);
-function addMovie(req, res) {
-  console.log(req.body);
-  data.push(req.body);
+app.post('/addMovie', addSomeMovie);
+
+function addSomeMovie(req, res) {
+//  postData.push(req.body);
+  console.log(postData);
+
+  let data = req.body;
+  postData['Movie'] = data.Movie;
 }
