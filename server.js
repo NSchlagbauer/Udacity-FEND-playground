@@ -19,7 +19,7 @@ const port = 8000;
 const server = app.listen(port, listening);
 
 function listening() {
-  console.log(`server running on port ${port}`);
+  console.log(`server running on localhost:${port}`);
 }
 
 // Alternative 2:
@@ -53,9 +53,9 @@ const postData = [];
 app.post('/addMovie', addSomeMovie);
 
 function addSomeMovie(req, res) {
-//  postData.push(req.body);
+  console.log('postData:');
   console.log(postData);
-
-  let data = req.body;
-  postData['Movie'] = data.Movie;
+  postData.push(req.body);
+//  let data = req.body;
+//  postData['Movie'] = data.Movie;
 }

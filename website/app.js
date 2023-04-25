@@ -1,4 +1,5 @@
 const postData = async ( url = '', data = {})=>{
+  console.log('data:'); // print data to console prior to sending
   console.log(data);
   const response = await fetch(url, {
     method: 'POST', 
@@ -10,12 +11,13 @@ const postData = async ( url = '', data = {})=>{
     body: JSON.stringify(data), 
   });
 
-    try {
-      const newData = await response.json();
+    try { //equals the resolve of a promise
+      const newData = await response.json(); //await means, we wait for the response before continuing
       console.log(newData);
       return newData;
-    }catch(error) {
+    }catch(error) { //equals the reject of a promise
     console.log("error", error);
+    //appropiately handle the error
     }
 }
 
